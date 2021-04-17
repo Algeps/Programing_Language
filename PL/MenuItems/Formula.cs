@@ -4,7 +4,14 @@ namespace PL.MenuItems
 {
     class Formula
     {
-        public static string FormulCalc()//расчёт формулы
+        public static void _Formula()
+        {
+            Console.WriteLine("\n-------------------------");
+            Console.WriteLine("X % Z + sqrt(Y) = " + Formula.FormulCalc());
+            Console.WriteLine("-------------------------\n");
+        }
+
+        private static string FormulCalc()//расчёт формулы
         {
             int X = 0, Y = 0, Z = 0;
             Console.WriteLine("Enter X:");

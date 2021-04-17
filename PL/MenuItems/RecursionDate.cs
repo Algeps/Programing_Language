@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Globalization;
-
+using PL.Validation;
 
 namespace PL
 {
@@ -11,32 +11,28 @@ namespace PL
         private DateTime date3;
         private DateTime date4;
 
-        public void Recursion_Date()// вызывает поледовательно методы
+        public void _RecursionDate()// вызывает поледовательно методы
         {
+            Console.WriteLine("\n------------------------------------------------------");
             Information();
             EnterDate();
-
-
-            string list = PrimeFactorsNumber();
+            PrimeFactorsNumber();
+            Console.WriteLine("------------------------------------------------------\n");
         }
 
         private void Information()// информация перед вводам дат
         {
-            Console.WriteLine("\n-------------------------");
             Console.WriteLine("The second date must not be less than the first date!");
             Console.WriteLine("The fourth date must not be less than the second date!");
-            Console.WriteLine("Dates are entered in the format \"DD.MM.YYYY\".");    
-            Console.WriteLine("-------------------------\n");
+            Console.WriteLine("Dates are entered in the format \"DD.MM.YYYY\".");
         }
 
         private void EnterDate()//присваивание переменным дат
         {
-            Console.WriteLine("\n-------------------------");
-            date1 = GetDate("Enter the first date:");
+            date1 = GetDate("\nEnter the first date:");
             date2 = GetDate("Enter the second date:");
             date3 = GetDate("Enter the third date:");
             date4 = GetDate("Enter the fourth date:");
-            Console.WriteLine("-------------------------\n");
         }
 
         private DateTime GetDate(string message)
@@ -55,7 +51,7 @@ namespace PL
                 }
                 else
                 {
-                    ErorrEnterDate();
+                    Console.WriteLine("Error: Incorrect format! Please, enter the date \"DD.MM.YYYY\": ");
                 }
             }
         }
@@ -88,27 +84,29 @@ namespace PL
 
         }
 
-        private void ErorrEnterDate()//вызывается, если дата введена неверно
+        private void PrimeFactorsNumber()//находит все простые множители числа N в порядке не убывания
         {
-            Console.WriteLine("-----------------------------");
-            Console.WriteLine("Error: Incorrect format! ");
-            Console.Write("Please, enter the date \"DD.MM.YYYY\": ");
-        }
-
-        private string PrimeFactorsNumber()//находит все простые множители числа в порядке не убывания
-        {
-            string list = "";
             int N = GetN();
             Console.WriteLine("{0}", N);
-            do
+            
+            for (int i = 1; i < (N + 1); i++)
             {
-                /*if (N mod 2)
+                bool isPrime = true;
+                for (int k = 2; k < (i - 1); k++)
                 {
-
-                }*/
-            } while (N >= 1);
-
-            return list;
+                    if (i % k == 0)
+                    {
+                        isPrime = false;
+                    }
+                }
+                if (isPrime == true)
+                {
+                    if (N % i == 0)
+                    {
+                        Console.Write("{0}, ", i);
+                    }
+                }
+            }
         }
     }
 }
