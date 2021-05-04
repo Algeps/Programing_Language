@@ -2,8 +2,26 @@
 
 namespace PL
 {
-    class IOUtils
+    static class IOUtils
     {
+        public static int SafeReadInteger(string message)//для безопасного чтения
+        {
+            if (!string.IsNullOrEmpty(message))
+            {
+                Console.WriteLine(message);
+            }
+            while (true)
+            {
+                string sValue = Console.ReadLine();
+                int iValue = 0;
+                if (Int32.TryParse(sValue, out iValue))
+                {
+                    return iValue;
+                }
+                Console.WriteLine("ERROR: некоректный формат! Введите целочисленную переменную...  ");
+            }
+        }
+
         private static int CheckNumber(int value)//проверка, что введена цыфра
         {
             if (!string.IsNullOrEmpty(""))

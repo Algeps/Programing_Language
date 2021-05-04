@@ -2,9 +2,11 @@
 
 namespace PL.MenuItems
 {
-    class HelloWorld
+    public class MenuItem_HelloWorld : MenuItem_Core
     {
-        public static void _HelloWorld()
+        public override string Title { get { return "Hello World!"; } }
+
+        public override void Execute()
         {
             Console.WriteLine("\n-------------------------");
             Console.WriteLine("Hello World!");
