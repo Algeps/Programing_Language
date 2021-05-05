@@ -8,11 +8,11 @@ namespace PL.MenuItems
 {
     public class MenuItem_Exit : MenuItem_Core
     {
-        public override string Title { get { return "Выход";  } } //если мы обращаемся к Title, затем чтобы его получить, мы обращаемся к "Выход"
+        public override string Title { get { return "Exit";  } } //если мы обращаемся к Title, затем чтобы его получить, мы обращаемся к "Выход"
 
         public override void Execute()// реализация самого метода
         {
-            Console.WriteLine("Выход... ");
+            Console.WriteLine("Exit... ");
             Environment.Exit(0);//Выход из консоли без ошибки
         }
     }

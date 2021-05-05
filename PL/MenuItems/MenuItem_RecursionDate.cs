@@ -5,13 +5,15 @@ namespace PL.MenuItems
 {
     class MenuItem_RecursionDate : MenuItem_Core
     {
-        public override string Title { get { return "Рекурсивная дата"; } }
+        public override string Title { get { return "Recursion date"; } }
 
         public override void Execute()
         {
             Console.WriteLine("\n------------------------------------------------------");
             Information();
             EnterDate();
+            Console.WriteLine("Разница дней: ");
+            Console.WriteLine("{0}", GetN());
             PrimeFactorsNumber();
             Console.WriteLine("\n------------------------------------------------------\n");
 
@@ -35,7 +37,7 @@ namespace PL.MenuItems
                 date4 = GetDate("Enter the fourth date:");
             }
 
-            DateTime GetDate(string message)
+            DateTime GetDate(string message)//функция для заполнения дат
             {
                 if (!string.IsNullOrEmpty(message))
                 {
@@ -87,8 +89,6 @@ namespace PL.MenuItems
             void PrimeFactorsNumber()//находит все простые множители числа N в порядке не убывания
             {
                 int N = GetN();
-                Console.WriteLine("Разница дней: ");
-                Console.WriteLine("{0}", N);
                 
                 Console.WriteLine("Простые множители в порядке не убывания: ");
                 for (int i = 1; i < (N + 1); i++)

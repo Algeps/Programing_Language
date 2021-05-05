@@ -31,7 +31,7 @@ namespace PL
 
             while (!int.TryParse(Console.ReadLine(), out value))//Преобразует строковое представление числа в эквивалентное ему 32-битовое целое число со знаком.
             {
-                Console.WriteLine("ERORR: Please enter correct value! ");
+                Console.WriteLine("ERORR: Введите корректное число! ");
             }
             return value;
         }
@@ -46,7 +46,7 @@ namespace PL
          {
              while (!int.TryParse(Console.ReadLine(), out value) || value < 0)
              {
-                 Console.WriteLine("ERROR: Please enter ONLY POSITIVE number! ");
+                 Console.WriteLine("ERROR: Только положительное число! ");
              }
              return value;
          }
@@ -55,7 +55,7 @@ namespace PL
          {
               while (!int.TryParse(Console.ReadLine(), out value) || value < 1)
               {
-                  Console.WriteLine("ERROR: Please enter ONLY NATURAL number! ");
+                  Console.WriteLine("ERROR: Только натуральное число! ");
               }
               return value;
          }

@@ -4,7 +4,7 @@ namespace PL.MenuItems
 {
     public class MenuItem_Formula : MenuItem_Core
     {
-        public override string Title { get { return "Вычислить: X % Z + sqrt(Y)"; } }
+        public override string Title { get { return "Calc: X % Z + sqrt(Y)"; } }
 
         public override void Execute()
         {
@@ -15,11 +15,11 @@ namespace PL.MenuItems
             string FormulCalc()//расчёт формулы
             {
                 int X = 0, Y = 0, Z = 0;
-                Console.WriteLine("Enter X:");
+                Console.WriteLine("Введите X:");
                 X = IOUtils.InputNumber(X);
-                Console.WriteLine("Enter Y:");
+                Console.WriteLine("Введите Y:");
                 Y = IOUtils.CheckOnlyPositiveNumber(Y);
-                Console.WriteLine("Enter Z:");
+                Console.WriteLine("Введите Z:");
                 Z = IOUtils.CheckOnlyNaturalNumber(Z);
                 double rezult = ((X % Z) + Math.Sqrt(Y));
                 return rezult.ToString("F3");//преобразует число в строку(F3 - Строка числового формата, выводит человеческий слитный вывод 3 знаков после запятой)
