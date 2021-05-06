@@ -12,9 +12,16 @@ namespace PL.MenuItems
             Console.WriteLine("\n------------------------------------------------------");
             Information();
             EnterDate();
-            Console.WriteLine("Разница дней: ");
+            Console.WriteLine("Difference of days: ");
             Console.WriteLine("{0}", GetN());
-            PrimeFactorsNumber();
+            if (GetN() > 0)
+            {
+                PrimeFactorsNumber();
+            }
+            else
+            {
+                Console.WriteLine("Cannot be calculated for N = 0.");
+            }
             Console.WriteLine("\n------------------------------------------------------\n");
 
             DateTime date1;
@@ -31,10 +38,24 @@ namespace PL.MenuItems
 
             void EnterDate()//присваивание переменным дат
             {
-                date1 = GetDate("\nEnter the first date:");
-                date2 = GetDate("Enter the second date:");
-                date3 = GetDate("Enter the third date:");
-                date4 = GetDate("Enter the fourth date:");
+                do//чтобы первая дата не была больше второй
+                {
+                    date1 = GetDate("\nEnter the first date:");
+                    date2 = GetDate("Enter the second date:");
+                    if (date1 > date2)
+                    {
+                        Console.WriteLine("ERORR! The end date is less than the start date. Repeat the input! ");
+                    }
+                } while (date1 > date2);
+                do
+                {
+                    date3 = GetDate("Enter the third date:");
+                    date4 = GetDate("Enter the fourth date:");
+                    if (date3 > date4)
+                    {
+                        Console.WriteLine("ERORR! The end date is less than the start date. Repeat the input! ");
+                    }
+                } while (date3 > date4);
             }
 
             DateTime GetDate(string message)//функция для заполнения дат
@@ -90,7 +111,7 @@ namespace PL.MenuItems
             {
                 int N = GetN();
                 
-                Console.WriteLine("Простые множители в порядке не убывания: ");
+                Console.WriteLine("Prime factors in non-decreasing order: ");
                 for (int i = 1; i < (N + 1); i++)
                 {
                     bool isPrime = true;

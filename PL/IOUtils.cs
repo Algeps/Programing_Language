@@ -18,7 +18,7 @@ namespace PL
                 {
                     return iValue;
                 }
-                Console.WriteLine("ERROR: некоректный формат! Введите целочисленную переменную...  ");
+                Console.WriteLine("ERROR: Invalid format! Enter an integer variable...  ");
             }
         }
 
@@ -31,7 +31,7 @@ namespace PL
 
             while (!int.TryParse(Console.ReadLine(), out value))//Преобразует строковое представление числа в эквивалентное ему 32-битовое целое число со знаком.
             {
-                Console.WriteLine("ERORR: Введите корректное число! ");
+                Console.WriteLine("ERORR: Invalid format! Enter corret value! ");
             }
             return value;
         }
@@ -46,7 +46,7 @@ namespace PL
          {
              while (!int.TryParse(Console.ReadLine(), out value) || value < 0)
              {
-                 Console.WriteLine("ERROR: Только положительное число! ");
+                 Console.WriteLine("ERROR: Enter only a positive number! ");
              }
              return value;
          }
@@ -55,7 +55,7 @@ namespace PL
          {
               while (!int.TryParse(Console.ReadLine(), out value) || value < 1)
               {
-                  Console.WriteLine("ERROR: Только натуральное число! ");
+                  Console.WriteLine("ERROR: Enter only a natural number! ");
               }
               return value;
          }

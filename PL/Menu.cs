@@ -43,7 +43,7 @@ namespace PL
                         new TwoString()._TwoString();
                         break;
                     default:
-                        Console.WriteLine("ERROR! Пункт меню не найден! ");
+                        Console.WriteLine("ERROR! The menu item was not found! ");
                         break;
                 }
             }
