@@ -9,6 +9,7 @@ namespace PL.MenuItems
         public override void Execute()
         {
             Console.WriteLine("\n-------------------------");
+            Console.WriteLine("Calc: X % Z + sqrt(Y)"); 
             Console.WriteLine("X % Z + sqrt(Y) = " + FormulCalc());
             Console.WriteLine("-------------------------\n");
 

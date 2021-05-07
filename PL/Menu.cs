@@ -24,9 +24,10 @@ namespace PL
             {
                 ShowMenu();
                 int iMenu = IOUtils.SafeReadInteger(null);
-                
+                Console.Clear();
                 switch (iMenu)
                 {
+
                     case 0:
                         Environment.Exit(0);//Выход из консоли без ошибки
                         break;
@@ -40,11 +41,13 @@ namespace PL
                         MenuItems.ToArray()[3].Execute();
                         break;
                     case 4:
-                        new TwoString()._TwoString();
+                        MenuItems.ToArray()[4].Execute();
                         break;
                     default:
                         Console.WriteLine("ERROR! The menu item was not found! ");
+
                         break;
+                    
                 }
             }
         }

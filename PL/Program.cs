@@ -12,6 +12,7 @@ namespace PL
             Menu.AddItem(new MenuItem_HelloWorld());
             Menu.AddItem(new MenuItem_Formula());
             Menu.AddItem(new MenuItem_RecursionDate());
+            Menu.AddItem(new MenuItem_TwoStrings());
 
             while (true)
             {
