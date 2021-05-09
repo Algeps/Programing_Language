@@ -6,14 +6,14 @@ namespace PL
 {
     class Menu
     {
-        private static List<MenuItem_Core> MenuItems = new List<MenuItem_Core>(); //список из пунктов меню
+        private static List<Task> MenuItems = new List<Task>(); //список из пунктов меню
         
         public static void ClearItems()//метод, который всё удаляет
         {
             Menu.MenuItems.Clear();
         }
 
-        public static void AddItem(MenuItem_Core menuItem)//если мы хотим добавить какой-то пункт меню
+        public static void AddItem(Task menuItem)//если мы хотим добавить какой-то пункт меню
         {
             Menu.MenuItems.Add(menuItem);  
         }
@@ -56,7 +56,7 @@ namespace PL
         {
             Console.WriteLine("\n==========================");
             int iMenuItem = 0;
-            foreach (MenuItem_Core menuItem in Menu.MenuItems)
+            foreach (Task menuItem in Menu.MenuItems)
             {
                 Console.WriteLine("[{0}] {1}", iMenuItem++, menuItem.Title);
             }

@@ -2,9 +2,15 @@
 
 namespace PL.MenuItems
 {
-    public class MenuItem_HelloWorld : MenuItem_Core
+    public class MenuItem_HelloWorld : Task
     {
-        public override string Title { get { return "Hello World!"; } }
+        public override string Title
+        {
+            get
+            {
+                return "Hello World!";
+            }
+        }
 
         public override void Execute()
         {

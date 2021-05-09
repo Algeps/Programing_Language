@@ -2,9 +2,15 @@
 
 namespace PL.MenuItems
 {
-    public class MenuItem_Formula : MenuItem_Core
+    public class MenuItem_Formula : Task
     {
-        public override string Title { get { return "Calc: X % Z + sqrt(Y)"; } }
+        public override string Title
+        {
+            get
+            {
+                return "Calc: X % Z + sqrt(Y)";
+            }
+        }
 
         public override void Execute()
         {

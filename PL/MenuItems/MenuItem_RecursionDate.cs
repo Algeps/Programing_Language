@@ -3,9 +3,15 @@ using System.Globalization;
 
 namespace PL.MenuItems
 {
-    class MenuItem_RecursionDate : MenuItem_Core
+    class MenuItem_RecursionDate : Task
     {
-        public override string Title { get { return "Recursion date"; } }
+        public override string Title
+        {
+            get
+            {
+                return "Recursion date";
+            }
+        }
 
         public override void Execute()
         {
@@ -112,6 +118,7 @@ namespace PL.MenuItems
                 int N = GetN();
                 
                 Console.WriteLine("Prime factors in non-decreasing order: ");
+                //Простые множители в неубывающем порядке:
                 for (int i = 1; i < (N + 1); i++)
                 {
                     bool isPrime = true;
