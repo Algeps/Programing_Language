@@ -106,7 +106,7 @@ namespace PL.MenuItems
                     Console.WriteLine(ex.Message);
                 }
 
-                try//не является ли ip первая строка
+                try//не является ли ip-адресом первая строка
                 {
                     StringValidation.IsIP(string1, 1);
                 }
@@ -115,7 +115,7 @@ namespace PL.MenuItems
                     Console.WriteLine(ex.Message);
                 }
 
-                try//не является ли ip вторая строка
+                try//не является ли ip-адресом вторая строка
                 {
                     StringValidation.IsIP(string2, 2);
                 }

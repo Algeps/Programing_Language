@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace PL
 {
@@ -63,5 +64,26 @@ namespace PL
             }
             return value;
          }
+
+        public static DateTime SafeReadDate(string message)//функция для заполнения дат
+        {
+            if (!string.IsNullOrEmpty(message))
+            {
+                Console.WriteLine(message);
+            }
+            while (true)
+            {
+                string sValue = Console.ReadLine();
+                DateTime date;
+                if (DateTime.TryParseExact(sValue, "dd.MM.yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
+                {
+                    return date;
+                }
+                else
+                {
+                    Console.WriteLine("Error: Incorrect format! Please, enter the date \"DD.MM.YYYY\": ");
+                }
+            }
+        }
     }
 }

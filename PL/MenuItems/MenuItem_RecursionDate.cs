@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 
 namespace PL.MenuItems
 {
@@ -46,43 +45,24 @@ namespace PL.MenuItems
             {
                 do//чтобы первая дата не была больше второй
                 {
-                    date1 = GetDate("\nEnter the first date:");
-                    date2 = GetDate("Enter the second date:");
+                    date1 = IOUtils.SafeReadDate("\nEnter the first date:");
+                    date2 = IOUtils.SafeReadDate("Enter the second date:");
                     if (date1 > date2)
                     {
                         Console.WriteLine("ERORR! The end date is less than the start date. Repeat the input! ");
+                        //ОШИБКА! Дата окончания меньше даты начала. Повторите ввод!
                     }
                 } while (date1 > date2);
                 do
                 {
-                    date3 = GetDate("Enter the third date:");
-                    date4 = GetDate("Enter the fourth date:");
+                    date3 = IOUtils.SafeReadDate("Enter the third date:");
+                    date4 = IOUtils.SafeReadDate("Enter the fourth date:");
                     if (date3 > date4)
                     {
                         Console.WriteLine("ERORR! The end date is less than the start date. Repeat the input! ");
+                        //ОШИБКА! Дата окончания меньше даты начала. Повторите ввод!
                     }
                 } while (date3 > date4);
-            }
-
-            DateTime GetDate(string message)//функция для заполнения дат
-            {
-                if (!string.IsNullOrEmpty(message))
-                {
-                    Console.WriteLine(message);
-                }
-                while (true)
-                {
-                    string sValue = Console.ReadLine();
-                    DateTime date;
-                    if (DateTime.TryParseExact(sValue, "dd.MM.yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
-                    {
-                        return date;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Error: Incorrect format! Please, enter the date \"DD.MM.YYYY\": ");
-                    }
-                }
             }
 
             int GetN()// возвращает разность дней

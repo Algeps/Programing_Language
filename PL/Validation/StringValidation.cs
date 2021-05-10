@@ -20,18 +20,18 @@ namespace PL.Validation
         public static void IsPalindrome(string str1, string str2)//проверяет, являются ли они палиндромами
         {
             char[] charArr = str1.ToCharArray();
-            Array.Reverse(charArr);
+            Array.Reverse(charArr);//создаётся и заносится в массив, элементы с обратным расположением
             if (str2.Equals(new string(charArr)))
             {
-                Console.WriteLine("These are strings shifters. ");
+                Console.WriteLine("These are strings shifters(palindrome). ");
             }
             else
             {
-                throw new ValidationException("These strings are not shifters. ");
+                throw new ValidationException("These strings are not shifters(palindrome). ");
             }
         }
 
-        public static void IsEmail(string str, int number)//проверяет, содержит ли строки email
+        public static void IsEmail(string str, int number)//проверяет, содержит ли строчка email
         {
             if (Regex.IsMatch(str, "[^@ \t\r\n]+@[^@ \t\r\n]+\\.[^@ \t\r\n]+"))
             {
@@ -44,7 +44,7 @@ namespace PL.Validation
             }
         }
 
-        public static void IsPhoneNumber(string str, int number)//проверяет, содержит ли строка телефонный номер
+        public static void IsPhoneNumber(string str, int number)//проверяет, содержит ли строчка телефонный номер
         {
             if (Regex.IsMatch(str, "[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}"))
             {
