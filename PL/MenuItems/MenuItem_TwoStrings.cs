@@ -35,6 +35,7 @@ namespace PL.MenuItems
                 try//сравнение до обработки
                 {
                     StringValidation.IsEquals(string1, string2);
+                    Console.WriteLine("\nThe strings are equal. ");
                 }
                 catch (ValidationException ex)
                 {
@@ -53,6 +54,7 @@ namespace PL.MenuItems
                 try//сравнение после обработки
                 {
                     StringValidation.IsEquals(string1, string2);
+                    Console.WriteLine("\nThe strings are equal. ");
                 }
                 catch (ValidationException ex)
                 {
@@ -62,6 +64,7 @@ namespace PL.MenuItems
                 try//полиндром
                 {
                     StringValidation.IsPalindrome(string1, string2);
+                    Console.WriteLine("These are strings shifters(palindrome). ");
                 }
                 catch (ValidationException ex)
                 {
@@ -71,6 +74,7 @@ namespace PL.MenuItems
                 try//не является ли емайлом первая строка
                 {
                     StringValidation.IsEmail(string1, 1);
+                    Console.WriteLine("The string 1 does not contain email. ");
                 }
                 catch (ValidationException ex)
                 {
@@ -80,6 +84,7 @@ namespace PL.MenuItems
                 try//не является ли емайлом вторая строка
                 {
                     StringValidation.IsEmail(string2, 2);
+                    Console.WriteLine("The string 2 does not contain email. ");
                 }
                 catch (ValidationException ex)
                 {
@@ -89,6 +94,7 @@ namespace PL.MenuItems
                 try//не явялется ли номером первая строка
                 {
                     StringValidation.IsPhoneNumber(string1, 1);
+                    Console.WriteLine("The string 1 does contain phone number. ");
                 }
                 catch (ValidationException ex)
                 {
@@ -98,6 +104,7 @@ namespace PL.MenuItems
                 try//не явялется ли номером вторая строка
                 {
                     StringValidation.IsPhoneNumber(string2, 2);
+                    Console.WriteLine("The string 2 does contain phone number. ");
                 }
                 catch (ValidationException ex)
                 {
@@ -107,6 +114,7 @@ namespace PL.MenuItems
                 try//не является ли ip-адресом первая строка
                 {
                     StringValidation.IsIP(string1, 1);
+                    Console.WriteLine("The string 1 does contain IP-adress. ");
                 }
                 catch (ValidationException ex)
                 {
@@ -116,6 +124,7 @@ namespace PL.MenuItems
                 try//не является ли ip-адресом вторая строка
                 {
                     StringValidation.IsIP(string2, 2);
+                    Console.WriteLine("The string 2 does contain IP-adress. ");
                 }
                 catch (ValidationException ex)
                 {
