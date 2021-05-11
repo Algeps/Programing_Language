@@ -5,7 +5,7 @@ namespace PL
 {
     static class IOUtils
     {
-        public static int SafeReadInteger(string message)//для безопасного чтения
+        public static int SafeReadInteger(string message)//для безопасного чтения меню
         {
             if (!string.IsNullOrEmpty(message))
             {
@@ -24,45 +24,42 @@ namespace PL
             }
         }
 
-        private static int CheckNumber(int value)//проверка, что введена цыфра
-        {
-            if (!string.IsNullOrEmpty(""))
-            {
-                Console.Write("");
-            }
-
-            while (!int.TryParse(Console.ReadLine(), out value))//Преобразует строковое представление числа в эквивалентное ему 32-битовое целое число со знаком.
-            {
-                Console.WriteLine("ERROR: Invalid format! Enter correct value! ");
-                //ОШИБКА: Неверный формат! Введите правильное значение!
-            }
-            return value;
-        }
-
-         public static int InputNumber(int value)//ввод цыфры
+         public static int SafeReadPositiveInteger(string message)//проверка на положительное значения
          {
-              value = CheckNumber(value);
-              return value;
-         }
-
-         public static int CheckOnlyPositiveNumber(int value)//проверка на положительное значения
-         {
-             while (!int.TryParse(Console.ReadLine(), out value) || value < 0)
-             {
-                 Console.WriteLine("ERROR: Enter only a positive number! ");
+            if (!string.IsNullOrEmpty(message))
+            {
+                Console.WriteLine(message);
+            }
+            while (true)
+            {
+                string sValue = Console.ReadLine();
+                int iValue = 0;
+                if (Int32.TryParse(sValue, out iValue) && iValue >= 0)
+                {
+                    return iValue;
+                }
+                Console.WriteLine("ERROR: Enter only a positive number! ");
                 //ОШИБКА: Введите только положительное число!
             }
-            return value;
-         }
+        }
 
-         public static int CheckOnlyNaturalNumber(int value)//проверка на натуральные значения
+         public static int SafeReadNaturalInteger(string message)//проверка на натуральные значения
          {
-              while (!int.TryParse(Console.ReadLine(), out value) || value < 1)
-              {
-                  Console.WriteLine("ERROR: Enter only a natural number! ");
+            if (!string.IsNullOrEmpty(message))
+            {
+                Console.WriteLine(message);
+            }
+            while (true)
+            {
+                string sValue = Console.ReadLine();
+                int iValue = 0;
+                if (Int32.TryParse(sValue, out iValue) && iValue >= 1)
+                {
+                    return iValue;
+                }
+                Console.WriteLine("ERROR: Enter only a natural number! ");
                 //ОШИБКА: Введите только натуральное число!
             }
-            return value;
          }
 
         public static DateTime SafeReadDate(string message)//функция для заполнения дат
@@ -83,6 +80,19 @@ namespace PL
                 {
                     Console.WriteLine("Error: Incorrect format! Please, enter the date \"DD.MM.YYYY\": ");
                 }
+            }
+        }
+
+        public static string ReadString(string message)
+        {
+            if (!string.IsNullOrEmpty(message))
+            {
+                Console.WriteLine(message);
+            }
+            while (true)
+            {
+                string sValue = Console.ReadLine();
+                return sValue;
             }
         }
     }

@@ -26,10 +26,8 @@ namespace PL.MenuItems
             
             void EnterString()
             {
-                Console.WriteLine("Enter the first string: ");
-                string1 = Console.ReadLine();
-                Console.WriteLine("Enter the second string: ");
-                string2 = Console.ReadLine();
+                string1 = IOUtils.ReadString("Enter the first string: ");
+                string2 = IOUtils.ReadString("Enter the second string: ");
             }
 
             void PrintResults()

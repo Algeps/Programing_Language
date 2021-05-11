@@ -17,8 +17,7 @@ namespace PL.MenuItems
             Console.WriteLine("\n------------------------------------------------------");
             Information();
             EnterDate();
-            Console.WriteLine("Difference of days: ");
-            Console.WriteLine("{0}", GetN());
+            Console.WriteLine("Difference of days:\n{0}", GetN());
             if (GetN() > 0)
             {
                 PrimeFactorsNumber();

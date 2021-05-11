@@ -29,7 +29,7 @@ namespace PL
                 {
 
                     case 0:
-                        Environment.Exit(0);//Выход из консоли без ошибки
+                        MenuItems.ToArray()[0].Execute();
                         break;
                     case 1:
                         MenuItems.ToArray()[1].Execute();
@@ -47,7 +47,6 @@ namespace PL
                         Console.WriteLine("ERROR! The menu item was not found! ");
 
                         break;
-                    
                 }
             }
         }
