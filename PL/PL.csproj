@@ -53,6 +53,11 @@
     <Compile Include="MenuItems\MenuItem_TwoStrings.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validation\IsNotCorrectDate.cs" />
+    <Compile Include="Validation\IsNotCorrectInteger.cs" />
+    <Compile Include="Validation\IsNotNaturalIntegerWithZero.cs" />
+    <Compile Include="Validation\IsNotZero.cs" />
+    <Compile Include="Validation\ISpecification.cs" />
     <Compile Include="Validation\StringValidation.cs" />
     <Compile Include="Validation\ValidationException.cs" />
   </ItemGroup>

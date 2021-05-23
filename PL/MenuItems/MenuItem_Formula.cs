@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PL.Validation;
+using System;
 
 namespace PL.MenuItems
 {
@@ -21,9 +22,9 @@ namespace PL.MenuItems
 
             string FormulCalc()//расчёт формулы
             {
-                int X = IOUtils.SafeReadInteger("Enter X:");
-                int Z = IOUtils.SafeReadNaturalInteger("Enter Z:");
-                int Y = IOUtils.SafeReadPositiveInteger("Enter Y:");
+                int X = IOUtils.SafeReadInteger("Enter X:", new IsNotCorrectInteger());
+                int Z = IOUtils.SafeReadInteger("Enter Z:", new IsNotCorrectInteger(), new IsNotZero());
+                int Y = IOUtils.SafeReadInteger("Enter Y:", new IsNotCorrectInteger(), new IsNotNaturalIntegerWithZero());
                 double rezult = ((X % Z) + Math.Sqrt(Y));
                 return rezult.ToString("F3");//преобразует число в строку(F3 - Строка числового формата, выводит человеческий слитный вывод 3 знаков после запятой)
             }

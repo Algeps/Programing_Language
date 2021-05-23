@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PL.Validation;
+using System;
 
 namespace PL.MenuItems
 {
@@ -44,8 +45,8 @@ namespace PL.MenuItems
             {
                 do//чтобы первая дата не была больше второй
                 {
-                    date1 = IOUtils.SafeReadDate("\nEnter the first date:");
-                    date2 = IOUtils.SafeReadDate("Enter the second date:");
+                    date1 = IOUtils.SafeReadDate("\nEnter the first date:", new IsNotCorrectDate());
+                    date2 = IOUtils.SafeReadDate("Enter the second date:", new IsNotCorrectDate());
                     if (date1 > date2)
                     {
                         Console.WriteLine("ERORR! The end date is less than the start date. Repeat the input! ");
@@ -54,8 +55,8 @@ namespace PL.MenuItems
                 } while (date1 > date2);
                 do
                 {
-                    date3 = IOUtils.SafeReadDate("Enter the third date:");
-                    date4 = IOUtils.SafeReadDate("Enter the fourth date:");
+                    date3 = IOUtils.SafeReadDate("Enter the third date:", new IsNotCorrectDate());
+                    date4 = IOUtils.SafeReadDate("Enter the fourth date:", new IsNotCorrectDate());
                     if (date3 > date4)
                     {
                         Console.WriteLine("ERORR! The end date is less than the start date. Repeat the input! ");
