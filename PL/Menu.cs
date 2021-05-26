@@ -1,21 +1,34 @@
 ﻿using PL.MenuItems;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PL
 {
-    class Menu
+    public class Menu
     {
         private static List<Task> MenuItems = new List<Task>(); //список из пунктов меню
-        
+
+        public static int ItemsCount
+        {
+            get
+            {
+                return MenuItems.Count();
+            }
+        }
+
+        public static List<string> MenuItemsTitle = new List<string>();
+
         public static void ClearItems()//метод, который всё удаляет
         {
             Menu.MenuItems.Clear();
+            Menu.MenuItemsTitle.Clear();
         }
 
         public static void AddItem(Task menuItem)//если мы хотим добавить какой-то пункт меню
         {
-            Menu.MenuItems.Add(menuItem);  
+            Menu.MenuItems.Add(menuItem);
+            Menu.MenuItemsTitle.Add(menuItem.Title);
         }
         
         public static void Execute()//все операции с меню
@@ -27,7 +40,6 @@ namespace PL
                 Console.Clear();
                 switch (iMenu)
                 {
-
                     case 0:
                         MenuItems.ToArray()[0].Execute();
                         break;

@@ -62,7 +62,6 @@ namespace Tests.PL.Validation
             }
         }
 
-
         [TestCase("89963841405", true)]
         [TestCase("r996384140wq", false)]
         public void StringValidation_IsPhoneNumber(string str, bool result)

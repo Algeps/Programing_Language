@@ -10,7 +10,7 @@ namespace PL
             Menu.ClearItems();
             Menu.AddItem(new MenuItem_Exit());//сюда добавлять новые пункты меню
             Menu.AddItem(new MenuItem_HelloWorld());
-            Menu.AddItem(new MenuItem_Formula());
+            Menu.AddItem(new MenuItem_Calc());
             Menu.AddItem(new MenuItem_RecursionDate());
             Menu.AddItem(new MenuItem_TwoStrings());
 

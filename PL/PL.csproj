@@ -45,9 +45,9 @@
   <ItemGroup>
     <Compile Include="IOUtils.cs" />
     <Compile Include="Menu.cs" />
+    <Compile Include="MenuItems\MenuItem_Calc.cs" />
     <Compile Include="MenuItems\MenuItem_Core.cs" />
     <Compile Include="MenuItems\MenuItem_Exit.cs" />
-    <Compile Include="MenuItems\MenuItem_Formula.cs" />
     <Compile Include="MenuItems\MenuItem_HelloWorld.cs" />
     <Compile Include="MenuItems\MenuItem_RecursionDate.cs" />
     <Compile Include="MenuItems\MenuItem_TwoStrings.cs" />

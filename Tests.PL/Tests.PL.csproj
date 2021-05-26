@@ -57,7 +57,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MenuItems\MenuItems_FormulaTests.cs" />
+    <Compile Include="MenuItems\MenuItems_CalcTests.cs" />
+    <Compile Include="MenuItems\MenuItem_RecursionDateTests.cs" />
+    <Compile Include="MenuTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validation\IsNotCorrectDateTests.cs" />
     <Compile Include="Validation\IsNotNaturalIntegerWithZeroTests.cs" />
