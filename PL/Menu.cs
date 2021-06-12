@@ -33,11 +33,9 @@ namespace PL
         
         public static void Execute()//все операции с меню
         {
-            while (true)
-            {
-                ShowMenu();
-                int iMenu = IOUtils.SafeReadInteger(null);
-                Console.Clear();
+            
+                int iMenu = IOUtils.SafeReadInteger("mi", null);
+                //Console.Clear();
                 switch (iMenu)
                 {
                     case 0:
@@ -60,10 +58,10 @@ namespace PL
 
                         break;
                 }
-            }
+            
         }
 
-        private static void ShowMenu()//вывод всего меню
+        public static void ShowMenu()//вывод всего меню
         {
             Console.WriteLine("\n==========================");
             int iMenuItem = 0;

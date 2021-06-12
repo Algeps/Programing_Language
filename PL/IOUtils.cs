@@ -1,60 +1,83 @@
 ﻿using PL.Validation;
 using System;
-using System.Globalization;
+using System.Collections.Generic;
 
 namespace PL
 {
-    static class IOUtils
+    public static class IOUtils
     {
-        public static int SafeReadInteger(string message, ISpecification<string> specification1 = null, ISpecification<int> specification2 = null)
+        private static IDictionary<string, string> ExternalValues = null;
+
+        public static void SetExtValues(IDictionary<string, string> values)
         {
-            if (!string.IsNullOrEmpty(message))
+            ExternalValues = values;
+        }
+
+        public static int SafeReadInteger(string paramName, string message, ISpecification<string> specification1 = null, ISpecification<int> specification2 = null)
+        {
+            if (ExternalValues == null && !string.IsNullOrEmpty(message))
             {
                 Console.WriteLine(message);
             }
             while (true)
             {
-                string sValue = Console.ReadLine();
-                int iValue = 0;
-                if (Int32.TryParse(sValue, out iValue))
+                string sValue = GetValue(paramName, message);
+                try
                 {
-                    try
+                    int iValue = Int32.Parse(sValue);
+                    if (specification1 != null)
                     {
-                        if (specification1 != null)
-                        {
-                            specification1.Validate(sValue);
-                        }
+                        specification1.Validate(sValue);
                     }
-                    catch(ValidationException ex)
+                    if (specification2 != null)
                     {
-                        Console.WriteLine("ERROR: " + ex.Message);
+                        specification2.Validate(iValue);
                     }
-                    
-                    try
-                    {
-                        if (specification2 != null)
-                        {
-                            specification2.Validate(iValue);
-                        }
-                        return iValue;
-                    }
-                    catch (ValidationException ex)
+                    return iValue;
+                }
+                catch (Exception ex)
+                {
+                    if ((ex is ValidationException) ||
+                        (ex is OverflowException) ||
+                        (ex is FormatException))
                     {
                         Console.WriteLine("ERROR: " + ex.Message);
+                        if (ExternalValues != null)
+                        {
+                            throw new InvalidOperationException(ex.Message, ex);
+                        }
                     }
+                    throw ex;
                 }
             }
         }
 
-        public static DateTime SafeReadDate(string message, ISpecification<string> specification = null)//функция для заполнения дат
+        private static string GetValue(string paramName, string message)
         {
-            if (!string.IsNullOrEmpty(message))
+            string sValue = null;
+            if (ExternalValues == null)
+            {
+                sValue = Console.ReadLine();
+            }
+            else
+            {
+                if (!ExternalValues.TryGetValue(paramName, out sValue))
+                {
+                    throw new InvalidOperationException(string.Format("Parameter -{0} not specify.", paramName));
+                }
+            }
+            return sValue;
+        }
+
+        public static DateTime SafeReadDate(string paramName, string message, ISpecification<string> specification = null)//функция для заполнения дат
+        {
+            if (ExternalValues == null && !string.IsNullOrEmpty(message))
             {
                 Console.WriteLine(message);
             }
             while (true)
             {
-                string sValue = Console.ReadLine();
+                string sValue = GetValue(paramName, message);
                 DateTime date;
                 try
                 {
@@ -64,16 +87,20 @@ namespace PL
                     }
                     return date = DateTime.ParseExact(sValue, "dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None); ;
                 }
-                catch (ValidationException ex)
+                catch (FormatException ex)
                 {
                     Console.WriteLine("ERROR: " + ex.Message);
+                    if (ExternalValues != null)
+                    {
+                        throw new InvalidOperationException(ex.Message, ex);
+                    }
                 }
             }
         }
 
-        public static string ReadString(string message)
+        public static string ReadString(string paramName, string message)
         {
-            if (!string.IsNullOrEmpty(message))
+            if (ExternalValues == null && !string.IsNullOrEmpty(message))
             {
                 Console.WriteLine(message);
             }

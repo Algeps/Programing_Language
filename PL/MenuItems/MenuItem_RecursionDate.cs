@@ -42,8 +42,8 @@ namespace PL.MenuItems
         {
             do//чтобы первая дата не была больше второй
             {
-                date1 = IOUtils.SafeReadDate("\nEnter the first date:", new IsNotCorrectDate());
-                date2 = IOUtils.SafeReadDate("Enter the second date:", new IsNotCorrectDate());
+                date1 = IOUtils.SafeReadDate("d1st", "\nEnter the first date:", new IsNotCorrectDate());
+                date2 = IOUtils.SafeReadDate("d1end", "Enter the second date:", new IsNotCorrectDate());
                 if (date1 > date2)
                 {
                     Console.WriteLine("ERORR! The end date is less than the start date. Repeat the input! ");
@@ -52,8 +52,8 @@ namespace PL.MenuItems
             } while (date1 > date2);
             do
             {
-                date3 = IOUtils.SafeReadDate("Enter the third date:", new IsNotCorrectDate());
-                date4 = IOUtils.SafeReadDate("Enter the fourth date:", new IsNotCorrectDate());
+                date3 = IOUtils.SafeReadDate("d2st", "Enter the third date:", new IsNotCorrectDate());
+                date4 = IOUtils.SafeReadDate("d2end", "Enter the fourth date:", new IsNotCorrectDate());
                 if (date3 > date4)
                 {
                     Console.WriteLine("ERORR! The end date is less than the start date. Repeat the input! ");

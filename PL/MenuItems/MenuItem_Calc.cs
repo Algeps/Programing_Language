@@ -18,9 +18,9 @@ namespace PL.MenuItems
             Console.WriteLine("\n-------------------------");
             Console.WriteLine("Calc: X % Z + sqrt(Y)");
 
-            int X = IOUtils.SafeReadInteger("Enter X:", new IsNotCorrectInteger());
-            int Z = IOUtils.SafeReadInteger("Enter Z:", new IsNotCorrectInteger(), new IsNotZero());
-            int Y = IOUtils.SafeReadInteger("Enter Y:", new IsNotCorrectInteger(), new IsNotNaturalIntegerWithZero());
+            int X = IOUtils.SafeReadInteger("x", "Enter X:", new IsNotCorrectInteger());
+            int Z = IOUtils.SafeReadInteger("z", "Enter Z:", new IsNotCorrectInteger(), new IsNotZero());
+            int Y = IOUtils.SafeReadInteger("y", "Enter Y:", new IsNotCorrectInteger(), new IsNotNaturalIntegerWithZero());
 
             double rezult = Calc(X, Z, Y);
             Console.WriteLine("{0} % {1} + sqrt({2}) = " + rezult, X, Z, Y);//.ToString("F3")
