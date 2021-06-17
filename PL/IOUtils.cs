@@ -20,8 +20,8 @@ namespace PL
                 Console.WriteLine(message);
             }
             while (true)
-            {
-                string sValue = GetValue(paramName, message);
+            {   
+                string sValue = GetValue(paramName);
                 try
                 {
                     int iValue = Int32.Parse(sValue);
@@ -41,18 +41,27 @@ namespace PL
                         (ex is OverflowException) ||
                         (ex is FormatException))
                     {
-                        Console.WriteLine("ERROR: " + ex.Message);
-                        if (ExternalValues != null)
+                        if(ExternalValues != null)
                         {
+                            ErrorArg(paramName);
                             throw new InvalidOperationException(ex.Message, ex);
                         }
+                        else
+                        {
+                            Console.WriteLine("ERROR! " + ex.Message);
+                            Console.WriteLine("Enter the correct integer: ");
+                        }
                     }
-                    throw ex;
                 }
             }
         }
 
-        private static string GetValue(string paramName, string message)
+        private static void ErrorArg(string integerName)//указывает какой именно аргумент набран неправильно 
+        {
+            Console.Write("Argument {0}: ", integerName);
+        }
+
+        private static string GetValue(string paramName)
         {
             string sValue = null;
             if (ExternalValues == null)
@@ -77,7 +86,7 @@ namespace PL
             }
             while (true)
             {
-                string sValue = GetValue(paramName, message);
+                string sValue = GetValue(paramName);
                 DateTime date;
                 try
                 {
@@ -89,12 +98,21 @@ namespace PL
                 }
                 catch (FormatException ex)
                 {
-                    Console.WriteLine("ERROR: " + ex.Message);
+                    Console.WriteLine("ERROR! " + ex.Message);
                     if (ExternalValues != null)
                     {
                         throw new InvalidOperationException(ex.Message, ex);
                     }
                 }
+            }
+        }
+
+        public static void Date1MoreDate2(string date1, string date2)
+        {
+            if(ExternalValues != null)
+            {
+                Console.WriteLine("ERROR! {0} more {1}! ", date1, date2);
+                Environment.Exit(0);
             }
         }
 
@@ -106,7 +124,7 @@ namespace PL
             }
             while (true)
             {
-                string sValue = Console.ReadLine();
+                string sValue = GetValue(paramName);
                 return sValue;
             }
         }

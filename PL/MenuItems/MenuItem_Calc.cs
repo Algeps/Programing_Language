@@ -16,14 +16,13 @@ namespace PL.MenuItems
         public override void Execute()
         {
             Console.WriteLine("\n-------------------------");
-            Console.WriteLine("Calc: X % Z + sqrt(Y)");
 
             int X = IOUtils.SafeReadInteger("x", "Enter X:", new IsNotCorrectInteger());
             int Z = IOUtils.SafeReadInteger("z", "Enter Z:", new IsNotCorrectInteger(), new IsNotZero());
             int Y = IOUtils.SafeReadInteger("y", "Enter Y:", new IsNotCorrectInteger(), new IsNotNaturalIntegerWithZero());
 
             double rezult = Calc(X, Z, Y);
-            Console.WriteLine("{0} % {1} + sqrt({2}) = " + rezult, X, Z, Y);//.ToString("F3")
+            Console.WriteLine("{0} % {1} + sqrt({2}) = " + rezult, X, Z, Y);
             Console.WriteLine("-------------------------\n");
         }  
         public double Calc(int X, int Z, int Y)//расчёт формулы

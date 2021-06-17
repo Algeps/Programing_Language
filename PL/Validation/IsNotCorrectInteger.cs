@@ -8,7 +8,7 @@ namespace PL.Validation
         {
             if (!Int32.TryParse(value, out int iValue))
             {
-                throw new ValidationException(string.Format("ERROR: Invalid format! Enter an integer variable...  "));
+                throw new ValidationException(string.Format("ERROR! Invalid format!   "));
             }
         }
     }

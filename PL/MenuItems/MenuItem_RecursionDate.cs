@@ -16,7 +16,6 @@ namespace PL.MenuItems
         public override void Execute()
         {
             Console.WriteLine("\n------------------------------------------------------");
-            Information();
             EnterDate(out DateTime Date1, out DateTime Date2, out DateTime Date3, out DateTime Date4);
             int N = GetN(Date1, Date2, Date3, Date4);
             Console.WriteLine("Difference of days:\n{0}", N);
@@ -31,13 +30,6 @@ namespace PL.MenuItems
             Console.WriteLine("\n------------------------------------------------------\n");
         }
 
-        void Information()// информация перед вводом дат
-        {
-            Console.WriteLine("The second date must not be less than the first date!");
-            Console.WriteLine("The fourth date must not be less than the second date!");
-            Console.WriteLine("Dates are entered in the format \"DD.MM.YYYY\".");
-        }
-
         public void EnterDate(out DateTime date1, out DateTime date2, out DateTime date3, out DateTime date4)//присваивание переменным дат
         {
             do//чтобы первая дата не была больше второй
@@ -46,8 +38,8 @@ namespace PL.MenuItems
                 date2 = IOUtils.SafeReadDate("d1end", "Enter the second date:", new IsNotCorrectDate());
                 if (date1 > date2)
                 {
-                    Console.WriteLine("ERORR! The end date is less than the start date. Repeat the input! ");
-                    //ОШИБКА! Дата окончания меньше даты начала. Повторите ввод!
+                    IOUtils.Date1MoreDate2("d1st", "d1end");
+                    Console.WriteLine("ERROR! The end date is less than the start date. Repeat the input! ");
                 }
             } while (date1 > date2);
             do
@@ -56,8 +48,8 @@ namespace PL.MenuItems
                 date4 = IOUtils.SafeReadDate("d2end", "Enter the fourth date:", new IsNotCorrectDate());
                 if (date3 > date4)
                 {
-                    Console.WriteLine("ERORR! The end date is less than the start date. Repeat the input! ");
-                    //ОШИБКА! Дата окончания меньше даты начала. Повторите ввод!
+                    IOUtils.Date1MoreDate2("d2st", "d2end");
+                    Console.WriteLine("ERROR! The end date is less than the start date. Repeat the input! ");
                 }
             } while (date3 > date4);
         }

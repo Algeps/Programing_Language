@@ -8,7 +8,7 @@ namespace PL.Validation
         {
             if (value == 0)
             {
-                throw new ValidationException("Enter only any integer other than zero! ");
+                throw new ValidationException("Integer not must be equal zero! ");
             }
         }
     }

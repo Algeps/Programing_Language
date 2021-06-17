@@ -12,7 +12,7 @@ namespace PL.Validation
         {
             if (value < 0)
             {
-                throw new ValidationException("Enter only a natural number! ");
+                throw new ValidationException("Integer not must be less than zero! ");
             }
         }
     }

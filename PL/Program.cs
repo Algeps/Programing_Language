@@ -26,7 +26,7 @@ namespace PL
                 }
                 catch (InvalidOperationException ex)
                 {
-                    Console.WriteLine("ERROR: " + ex.Message);
+                    Console.WriteLine("ERROR! " + ex.Message);
                 }
             }
             else

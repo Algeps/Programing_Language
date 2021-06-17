@@ -24,7 +24,7 @@ namespace PL.MenuItems
         void EnterString(out string _string1, out string _string2)
         {
             _string1 = IOUtils.ReadString("s1", "Enter the first string: ");
-            _string2 = IOUtils.ReadString("xs2", "Enter the second string: ");
+            _string2 = IOUtils.ReadString("s2", "Enter the second string: ");
         }
 
         void PrintResults(string _string1, string _string2)
