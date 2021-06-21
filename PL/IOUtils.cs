@@ -13,7 +13,7 @@ namespace PL
             ExternalValues = values;
         }
 
-        public static int SafeReadInteger(string paramName, string message, ISpecification<string> specification1 = null, ISpecification<int> specification2 = null)
+        public static int SafeReadInteger(string paramName, string message, ISpecification<int> specification = null)
         {
             if (ExternalValues == null && !string.IsNullOrEmpty(message))
             {
@@ -25,13 +25,9 @@ namespace PL
                 try
                 {
                     int iValue = Int32.Parse(sValue);
-                    if (specification1 != null)
+                    if (specification != null)
                     {
-                        specification1.Validate(sValue);
-                    }
-                    if (specification2 != null)
-                    {
-                        specification2.Validate(iValue);
+                        specification.Validate(iValue);
                     }
                     return iValue;
                 }
